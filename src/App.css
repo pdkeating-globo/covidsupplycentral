@@ -1,0 +1,156 @@
+.App {
+  text-align: center;
+  background-color: #ddd;
+}
+
+.App-logo {
+  height: 150px;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.IntroText{
+  margin: auto;
+  width: 90%;
+  max-width: 720px;
+}
+
+.Panel {
+  width: 90%;
+  max-width: 1016px;
+}
+
+.Tableau{
+  margin: 3rem auto;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.App-link {
+  color: white;
+  width: 250px;
+  background-color: #980505;
+  text-decoration: none;
+  border-radius: 2px;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+.Video{
+  margin: auto;
+}
+
+.Youtube{
+  width: 90%;
+  max-width: 600px;
+}
+
+.LogoGrid{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.Logo{
+  height: 100px;
+  margin: 0 2rem;
+}
+
+.Form {
+  display: flex;
+  flex-flow: column;
+  width: 90%;
+  max-width: 800px;
+}
+
+.TwoColumn{
+  display: flex;
+  flex-flow: row;
+}
+
+h3{
+  margin-top: 3rem;
+}
+
+input, textarea {
+  outline: none;
+  border: 1px solid #3069cd;
+  background-color: white;
+  padding: 6px 10px;
+  margin: 0 0.5rem;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+input:focus, textarea:focus {
+  box-shadow: 2px 2px #3069cd;
+}
+
+.HalfField{
+  display: flex;
+  flex-flow: row;
+  margin: auto;
+}
+
+.Line{
+  display: block;
+  width: 30%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 1px;
+}
+
+.Footer{
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 1000px){
+  .App-logo {
+    height: 150px;
+    pointer-events: none;
+    position: relative;
+  }
+
+  .LogoGrid{
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .Logo{
+    width: 70%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .TwoColumn{
+    display: flex;
+    flex-flow: column;
+    margin: auto;
+  }
+
+  input {
+    margin: 0.5rem;
+  }
+
+  textarea{
+    max-width: 400px;
+    margin: 0.5rem auto;
+  }
+}
