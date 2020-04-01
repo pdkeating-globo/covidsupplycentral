@@ -9,6 +9,10 @@ import HackathonLogo from './HackathonLogo.jpg';
 import './App.css';
 
 class App extends React.Component {
+  state = {
+    feedbackSubmitted: false
+  }
+  
   componentDidMount(){
     ReactGA.initialize('UA-162191779-1');
     ReactGA.pageview(window.location.pathname + window.location.search);
@@ -36,6 +40,7 @@ class App extends React.Component {
   }
 
   feedbackSubmitted(){
+    this.setState({feedbackSubmitted: true});
     ReactGA.event({
       category: 'Feedback',
       action: 'Submitted Feedback'
@@ -98,10 +103,16 @@ class App extends React.Component {
             </div>
           </div>
           <h3>Feedback</h3>
-          <form className="Form" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+          <p style={{display: this.state.feedbackSubmitted ? 'block' : 'none'}}>Thank you for your message!</p>          
+          <iframe title='form' name="form" style={{display: "none"}}></iframe>
+          <form className="Form" target="form" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" style={{display: !this.state.feedbackSubmitted ? 'block' : 'none'}}>
             <input type="hidden" name="orgid" value="00D3h000001TYzR"/>
             <input type="hidden" name="retURL" value="https://www.covidsupplycentral.org"/>
-            <textarea name="description" placeholder="Enter feedback here..."></textarea>
+            <div className="SubjectLine">
+              <label for="subject">Subject</label>
+              <input id="subject" maxlength="80" name="subject" size="20" type="text" placeholder="Enter subject here..."/>
+            </div>
+            <textarea name="description" placeholder="Enter feedback here..." size="20"></textarea>
             <div className="TwoColumn">
               <div className="HalfField">
                 <label for="name">Name</label>
@@ -111,7 +122,7 @@ class App extends React.Component {
                 <label for="email">Email</label>
                 <input id="email" maxlength="80" name="email" size="20" type="text" placeholder="jane@example.com"/>
               </div>
-              <input type="submit" name="submit" value='Submit feedback' className="App-link" onClick={this.feedbackSubmitted}/>
+              <input type="submit" name="submit" value='Submit feedback' className="App-link" onClick={(event)=> this.feedbackSubmitted(event)}/>
             </div>
           </form>
           <hr className="Line"/>
